@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  react-app:
+    container_name: react-client
+    build:
+      context: .
+      dockerfile: client/Dockerfile-local
+    volumes:
+      - './client:/app'
+      - '/app/node_modules'
+    ports:
+      - '3001:3000'
+    environment:
+      - NODE_ENV=development
