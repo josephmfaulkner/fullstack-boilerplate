@@ -1,0 +1,23 @@
+{
+  "name": "fullstack-boilerplate-api",
+  "version": "1.0.0",
+  "description": "Backend for fullstack-boilerplate",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server-main.js",
+    "test": "echo wat?"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josephmfaulkner/fullstack-boilerplate.git"
+  },
+  "author": "josephmfaulkner",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/josephmfaulkner/fullstack-boilerplate/issues"
+  },
+  "homepage": "https://github.com/josephmfaulkner/fullstack-boilerplate#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

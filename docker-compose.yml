@@ -1,7 +1,9 @@
 version: '3'
 
 services:
-  react-app:
+  react-client:
+    depends_on: 
+      - express-server
     container_name: react-client
     build:
       context: .
@@ -10,6 +12,33 @@ services:
       - './client:/app'
       - '/app/node_modules'
     ports:
-      - '3001:3000'
+      - '3000:3000'
     environment:
       - NODE_ENV=development
+  
+  express-server:
+    depends_on: 
+      - mysql-database
+    container_name: express-server
+    build:
+      context: .
+      dockerfile: api/Dockerfile
+    volumes:
+      - './api:/usr/src/app' 
+      - '/app/node_modules'
+    ports:
+      - '3080:3080'
+    environment:
+      - NODE_ENV=development     
+    
+  mysql-database:
+    image: mysql:5.7
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports: 
+      - '3006:3306'
+    environment:
+      MYSQL_DATABASE: fullstack-application
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: root
