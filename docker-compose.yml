@@ -14,6 +14,8 @@ services:
       - '3000:3000'
     environment:
       - NODE_ENV=development
+    links:
+      - express-server:api
   
   express-server:
     depends_on: 
@@ -28,7 +30,9 @@ services:
     ports:
       - '3080:3080'
     environment:
-      - NODE_ENV=development     
+      - NODE_ENV=development    
+    links:
+      - mysql-database:mysql-database 
     
   mysql-database:
     image: mysql:5.7

@@ -12,13 +12,14 @@ import Typography from '@material-ui/core/Typography';
 
 
 class ListCard extends React.Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
     }
 
     render(){
+        const { postData } = this.props;
         return(
-            <Grid xs={12} className="ListCard">
+            <Grid className="ListCard">
                 <Card>
                 <CardMedia
                     image="https://source.unsplash.com/random"
@@ -26,7 +27,7 @@ class ListCard extends React.Component {
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
-                        Heading
+                        {postData.title}
                     </Typography>
                     <Typography>
                         This is a media card. You can use this section to describe the content.
