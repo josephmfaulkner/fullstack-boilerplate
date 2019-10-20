@@ -8,8 +8,37 @@ const HOST = config.HOST;
 
 // App
 const app = express();
+
+
 app.get('/', (req, res) => {
-  res.send('Hello world\n');
+  res.json({
+    posts: [
+      {
+        title: 'PDF Document'
+      },
+      {
+        title: 'Family Photo'
+      },
+      {
+        title: 'Shopping List'
+      },
+      {
+        title: 'Train Tickets'
+      },
+      {
+        title: 'Expense Report'
+      },
+      {
+        title: 'Cover Letter'
+      },
+      {
+        title: 'Transcript'
+      },
+      {
+        title: 'Album Script'
+      }
+    ]
+  });
 });
 
 app.listen(PORT, HOST);
