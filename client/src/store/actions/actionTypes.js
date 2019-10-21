@@ -1,0 +1,7 @@
+const SET_POSTS = 'SET_POSTS';
+const REFRESH_POSTS = 'REFRESH_POSTS';
+
+export {
+    SET_POSTS,
+    REFRESH_POSTS
+};
