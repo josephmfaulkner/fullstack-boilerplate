@@ -6,27 +6,14 @@ import ListCard from '../components/ListCard'
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 
-import {getPosts} from '../api/posts';
-
-import { setPosts } from '../store/actions/Posts';
+import { fetchPosts } from '../store/actions/Posts';
 
 
 class Home extends React.Component{
-    constructor(){
-        super();
-    }
 
     componentDidMount(){
-        const { setPostsStore } = this.props; 
-        getPosts().then((fetchedPosts)=>{
-            setPostsStore(fetchedPosts);
-        });
-        /*
-        getPosts().then((fetchedPosts)=>{
-            console.log(fetchedPosts);
-            this.setState({posts: fetchedPosts});
-        })
-        */
+        const { fetchPosts } = this.props;
+        fetchPosts();
     }
 
     render(){
@@ -50,7 +37,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-    setPostsStore :setPosts
+    fetchPosts
 };
 
 export default connect(

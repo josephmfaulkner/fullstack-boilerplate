@@ -12,9 +12,6 @@ import Typography from '@material-ui/core/Typography';
 
 
 class ListCard extends React.Component {
-    constructor(props){
-        super(props);
-    }
 
     render(){
         const { postData } = this.props;

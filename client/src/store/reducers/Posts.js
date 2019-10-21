@@ -1,14 +1,7 @@
 import { SET_POSTS } from '../actions/actionTypes';
 
 const initialState = {
-    posts: [
-        {
-          title: 'PDF Document'
-        },
-        {
-          title: 'Family Photo'
-        }
-    ]
+    posts: []
 };
 
 export default function(state = initialState, action){

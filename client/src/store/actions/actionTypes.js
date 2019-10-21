@@ -1,7 +1,9 @@
+const FETCH_POSTS = 'FETCH_POSTS';
 const SET_POSTS = 'SET_POSTS';
 const REFRESH_POSTS = 'REFRESH_POSTS';
 
 export {
+    FETCH_POSTS,
     SET_POSTS,
     REFRESH_POSTS
 };
