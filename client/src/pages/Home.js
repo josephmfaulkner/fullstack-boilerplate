@@ -17,6 +17,10 @@ class Home extends React.Component{
     }
 
     componentDidMount(){
+        const { setPostsStore } = this.props; 
+        getPosts().then((fetchedPosts)=>{
+            setPostsStore(fetchedPosts);
+        });
         /*
         getPosts().then((fetchedPosts)=>{
             console.log(fetchedPosts);
@@ -46,7 +50,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-    setPosts
+    setPostsStore :setPosts
 };
 
 export default connect(

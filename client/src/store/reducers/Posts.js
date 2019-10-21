@@ -14,8 +14,9 @@ const initialState = {
 export default function(state = initialState, action){
     switch(action.type) {
         case SET_POSTS: {
-            const { newPosts } = action.payload; 
-            return { posts: newPosts }
+            const newPosts = action.payload; 
+            let newState = { posts: newPosts };
+            return newState;
         }
         default: return state; 
     }
