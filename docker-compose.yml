@@ -21,14 +21,15 @@ services:
     depends_on: 
       - mysql-database
     container_name: express-server
+    command: npm run debug
     build:
       context: .
-      dockerfile: api/Dockerfile
+      dockerfile: api/Dockerfile-local
     volumes:
-      - './api:/usr/src/app' 
-      - '/app/node_modules'
+      - './api/dist:/usr/src/app/dist' 
     ports:
       - '3080:3080'
+      - "5858:5858"
     environment:
       - NODE_ENV=development    
     links:
