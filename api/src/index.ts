@@ -70,22 +70,6 @@ app.use((req, res, next) => {
 });
 
 app.get("/", (req, res) => {
-  res.json({
-    posts: [
-      {
-        title: "PDF Document"
-      },
-      {
-        title: "Cover Letter"
-      },
-      {
-        title: "Letter to Mother"
-      }
-    ]
-  });
-});
-
-app.get("/posts", (req, res) => {
   Post.findAll()
   .then(results => res.json(results));
 })
