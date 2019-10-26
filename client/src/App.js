@@ -24,7 +24,7 @@ function App() {
             </Typography>
           </Toolbar>
       </AppBar>
-      <Container maxWidth="md" className="mainContainer">
+      <Container maxWidth="sm" className="mainContainer">
         <Switch>
           <Route path="/">
             <Home />

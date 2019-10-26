@@ -22,6 +22,46 @@ module.exports = {
       title: 'PDF Document',
       description: 'Cover letter and resume',
       url: ''
+    },
+    {
+      title: 'Stamp Collection',
+      description: '357 stamps as of January 2019',
+      url: ''
+    },
+    {
+      title: 'Wedding Playlist',
+      description: 'Classic Acoustic Songs (runtime: 190min)',
+      url: ''
+    },
+    {
+      title: 'Roadmaps',
+      description: 'California and Nevada',
+      url: ''
+    },
+    {
+      title: 'Bank Statement',
+      description: 'From March 1st 2017',
+      url: ''
+    },
+    {
+      title: 'Stock footage',
+      description: 'Scenic footage of New York Central Park',
+      url: ''
+    },
+    {
+      title: 'Sewing Patterns',
+      description: 'Window Curtains',
+      url: ''
+    },
+    {
+      title: 'College Transcript',
+      description: 'As of July 2016',
+      url: ''
+    },
+    {
+      title: 'Shopping List',
+      description: 'Groceries and Costco run',
+      url: ''
     }
   ], {});
   },

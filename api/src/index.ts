@@ -71,7 +71,7 @@ app.use((req, res, next) => {
 
 app.get("/", (req, res) => {
   Post.findAll()
-  .then(results => res.json(results));
+  .then(results => res.json({posts: results}));
 })
 
 app.listen(PORT, HOST);

@@ -1,0 +1,7 @@
+.add-button {
+  position: fixed !important;
+  bottom: 10px !important;
+  left: 50% !important;
+  margin-left: -35px !important;
+  background-color : #1d5686 !important;
+}

@@ -1,16 +1,17 @@
 import React from 'react';
 import { connect } from "react-redux";
 
-import ListCard from '../components/ListCard'
+import { fetchPosts } from '../store/actions/Posts';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
+import ListCard from '../components/ListCard'
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
 
-import { fetchPosts } from '../store/actions/Posts';
-
+import './Home.css'
 
 class Home extends React.Component{
-
     componentDidMount(){
         const { fetchPosts } = this.props;
         fetchPosts();
@@ -21,11 +22,14 @@ class Home extends React.Component{
         return(
             <React.Fragment>
                 <CssBaseline />
-                    <Grid container spacing={4}>
+                    <Grid container>
                         {posts.map((post, index) => (
                             <ListCard key={index} postData={post}/>
                         ))}
                     </Grid>
+                    <Fab color="primary" aria-label="add" className="add-button">
+                      <AddIcon />
+                    </Fab>
             </React.Fragment>
         );
     }
