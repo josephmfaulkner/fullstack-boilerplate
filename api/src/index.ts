@@ -1,6 +1,6 @@
 "use strict";
 import express from "express";
-import { Sequelize } from "sequelize";
+import { Sequelize, Model, DataTypes } from "sequelize";
 import config from "./config";
 
 // Constants
@@ -25,6 +25,38 @@ sequelize
     console.error('Unable to connect to the database:', err);
   });
 
+class Post extends Model {
+  public id!: number;
+  public title!: string;
+  public description!: string;
+  public url!: string;
+
+  public readonly createdAt!: Date;
+  public readonly updatedAt!: Date;
+}
+
+Post.init({
+  id: {
+    type: DataTypes.INTEGER.UNSIGNED,
+    autoIncrement: true,
+    primaryKey: true,
+  },
+  title: {
+    type: new DataTypes.STRING(128),
+    allowNull: false,
+  },
+  description: {
+    type: new DataTypes.STRING(128),
+    allowNull: false,
+  },
+  url: {
+    type: new DataTypes.STRING(128),
+    allowNull: false,
+  },
+}, {
+  tableName: 'Posts',
+  sequelize: sequelize, // this bit is important
+});
 
 
 
@@ -52,6 +84,11 @@ app.get("/", (req, res) => {
     ]
   });
 });
+
+app.get("/posts", (req, res) => {
+  Post.findAll()
+  .then(results => res.json(results));
+})
 
 app.listen(PORT, HOST);
 // tslint:disable-next-line:no-console
