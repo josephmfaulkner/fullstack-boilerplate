@@ -1,0 +1,24 @@
+{
+  "development": {
+    "username": "root",
+    "password": "root",
+    "database": "fullstack-application",
+    "host": "127.0.0.1",
+    "port": "3006",
+    "dialect": "mysql",
+    "operatorsAliases": false,
+    "seederStorage": "sequelize",
+    "seederStorageTableName": "SequelizeData"
+  },
+  "docker-dev":{
+    "username": "root",
+    "password": "root",
+    "database": "fullstack-application",
+    "host": "mysql-database",
+    "port": "3306",
+    "dialect": "mysql",
+    "operatorsAliases": false,
+    "seederStorage": "sequelize",
+    "seederStorageTableName": "SequelizeData"
+  }
+}

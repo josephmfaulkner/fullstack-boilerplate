@@ -21,7 +21,7 @@ services:
     depends_on: 
       - mysql-database
     container_name: express-server
-    command: npm run debug
+    command: npm run docker-start
     build:
       context: .
       dockerfile: api/Dockerfile-local
@@ -31,7 +31,12 @@ services:
       - '3080:3080'
       - "5858:5858"
     environment:
-      - NODE_ENV=development    
+      - NODE_ENV=docker-dev  
+      - MYSQL_DATABASE=fullstack-application
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+      - MYSQL_HOST=mysql-database
+      - MYSQL_PORT=3306
     links:
       - mysql-database:mysql-database 
     

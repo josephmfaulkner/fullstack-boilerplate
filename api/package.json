@@ -5,11 +5,14 @@
   "main": "./dist/index.js",
   "scripts": {
     "lint": "tslint -c tslint.json -p tsconfig.json --fix",
+    "db-migrate":"sequelize-cli db:migrate",
+    "db-refresh":"sequelize-cli db:seed:undo:all; sequelize-cli db:migrate:undo:all; sequelize-cli db:migrate; sequelize-cli db:seed:all",
     "build": "tsc -p ./src",
     "postinstall": "npm run build",
     "watch": "tsc -w -p ./src",
     "debug": "nodemon --legacy-watch --watch ./dist --inspect=0.0.0.0:5858 --nolazy ./dist/index.js",
     "docker-debug": "docker-compose up",
+    "docker-start": "npm run db-refresh; npm run debug",
     "start": "node ./dist/index.js",
     "test": "echo wat?"
   },
@@ -30,5 +33,12 @@
     "nodemon": "^1.11.0",
     "tslint": "^5.20.0",
     "typescript": "^3.6.4"
+  },
+  "dependencies": {
+    "@types/bluebird": "^3.5.28",
+    "@types/validator": "^10.11.3",
+    "mysql2": "^1.7.0",
+    "sequelize": "^5.21.1",
+    "sequelize-cli": "^5.5.1"
   }
 }

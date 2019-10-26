@@ -4,10 +4,29 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
+const sequelize_1 = require("sequelize");
 const config_1 = __importDefault(require("./config"));
 // Constants
 const PORT = config_1.default.PORT;
 const HOST = config_1.default.HOST;
+const dbHost = process.env.MYSQL_HOST;
+const dbPort = process.env.MYSQL_PORT;
+const databaseName = process.env.MYSQL_DATABASE;
+const dbUsername = process.env.MYSQL_USER;
+const dbPassword = process.env.MYSQL_PASSWORD;
+//'postgres://user:pass@example.com:5432/dbname'
+const dbConnectString = `mysql://${dbUsername}:${dbPassword}@${dbHost}:${dbPort}/${databaseName}`;
+// tslint:disable-next-line:no-console
+console.log(`CONN STRING: ${dbConnectString}`);
+const sequelize = new sequelize_1.Sequelize(dbConnectString);
+sequelize
+    .authenticate()
+    .then(() => {
+    console.log('Connection has been established successfully.');
+})
+    .catch(err => {
+    console.error('Unable to connect to the database:', err);
+});
 // App
 const app = express_1.default();
 app.use((req, res, next) => {
