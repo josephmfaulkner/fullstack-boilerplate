@@ -2,6 +2,8 @@ import React from 'react';
 
 import './ListCard.css';
 
+import { Link as RouterLink } from 'react-router-dom';
+
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
@@ -15,8 +17,10 @@ class ListCard extends React.Component {
 
     render(){
         const { postData } = this.props;
+        const linkURL = `/editpost/${postData.id}`;
         return(
         <Grid item xs={12}>
+          <RouterLink to={linkURL} className="ListCardLink">
           <Card className="ListCard">
             <CardMedia
                 image="https://source.unsplash.com/random"
@@ -31,6 +35,7 @@ class ListCard extends React.Component {
                 </Typography>
             </CardContent>
           </Card>
+          </RouterLink>
         </Grid>
         );
     }

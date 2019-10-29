@@ -1,5 +1,8 @@
 import React from 'react';
 import Home from './pages/Home';
+import AddPost from './pages/post/AddPost';
+import EditPost from './pages/post/EditPost';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -16,7 +19,7 @@ import './App.css';
 
 function App() {
   return (
-    <Router>
+    <div>
       <AppBar className="mainHeader">
           <Toolbar variant="dense">
             <Typography variant="h6" color="inherit" noWrap>
@@ -26,12 +29,16 @@ function App() {
       </AppBar>
       <Container maxWidth="sm" className="mainContainer">
         <Switch>
+          <Route exact path="/editpost/:id" component={EditPost} />
+          <Route path="/newpost">
+            <AddPost />
+          </Route>
           <Route path="/">
             <Home />
           </Route>
         </Switch>
       </Container>
-    </Router>
+    </div>
   );
 }
 

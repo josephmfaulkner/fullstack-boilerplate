@@ -1,9 +1,15 @@
 const FETCH_POSTS = 'FETCH_POSTS';
+const ADD_POST = 'ADD_POST'; 
+const EDIT_POST = 'EDIT_POST';
+const DELETE_POST = 'DELETE_POST';
 const SET_POSTS = 'SET_POSTS';
 const REFRESH_POSTS = 'REFRESH_POSTS';
 
 export {
     FETCH_POSTS,
+    ADD_POST,
+    EDIT_POST,
+    DELETE_POST,
     SET_POSTS,
     REFRESH_POSTS
 };

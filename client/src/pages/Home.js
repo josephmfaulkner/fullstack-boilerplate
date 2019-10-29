@@ -10,6 +10,7 @@ import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 
 import './Home.css'
+import { Link as RouterLink } from 'react-router-dom';
 
 class Home extends React.Component{
     componentDidMount(){
@@ -27,9 +28,11 @@ class Home extends React.Component{
                             <ListCard key={index} postData={post}/>
                         ))}
                     </Grid>
-                    <Fab color="primary" aria-label="add" className="add-button">
-                      <AddIcon />
-                    </Fab>
+                    <RouterLink to="/newpost" className="add-button">
+                      <Fab color="primary" aria-label="add" className="add-button">
+                        <AddIcon />
+                      </Fab>
+                    </RouterLink>
             </React.Fragment>
         );
     }
